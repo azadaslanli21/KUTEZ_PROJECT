@@ -1,5 +1,6 @@
 // Backend API URL
-const API_URL = "http://localhost:5000/api/products";
+//const API_URL = "http://localhost:5000/api/products";
+const API_URL = "https://kutezproject-1f8cb6e3f9e0.herokuapp.com/api/products"
 
 let currentStartIndex = 0; // Current Range of products
 let totalProducts = 0; // Total number of products
