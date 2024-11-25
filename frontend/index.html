@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Product List</h1>
+
+        <!-- Filters -->
+        <div class="filters">
+            <h3>Filter by Price</h3>
+            <input type="number" id="minPrice" placeholder="Min Price">
+            <input type="number" id="maxPrice" placeholder="Max Price">
+
+            <h3>Filter by Popularity</h3>
+            <input type="number" id="minPopularity" placeholder="Min Popularity" step="0.1" min="1" max="5">
+            <input type="number" id="maxPopularity" placeholder="Max Popularity" step="0.1" min="1" max="5">
+
+            <button id="applyFiltersBtn">Apply Filters</button>
+        </div>
+
+        <!-- Carousel -->
+        <div id="carousel" class="carousel">
+            <button id="prevBtn" class="nav-button">◀</button>
+            <div class="carousel-track-container">
+                <div id="carouselTrack" class="carousel-track"></div>
+            </div>
+            <button id="nextBtn" class="nav-button">▶</button>
+        </div>
+
+        <!-- Slider -->
+        <div class="slider-container">
+            <input id="carouselSlider" type="range" min="0" max="0" value="0" step="1">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
