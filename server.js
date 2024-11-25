@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 require("dotenv").config();
+const path = require("path");
 
 const products = require("./products.json");
 const app = express();
@@ -9,7 +10,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const PORT = 5000;
+//const PORT = 5000;
+
+app.use(express.static(path.join(__dirname, "public"))); 
 
 // API/PRODUCTS include jason file with added real price and changed popularity score
 app.get("/api/products", async (req, res) => {
@@ -52,14 +55,22 @@ app.get("/api/products", async (req, res) => {
 });
 
 // TESTING MAIN PAGE OF ROOT
+//app.get("/", (req, res) => {
+//    res.send("Backend is running!");
+//});
+//
+// STARTER
+//app.listen(PORT, () => {
+//    console.log(`Server is running on http://localhost:${PORT}`);
+//});
+
+
+// Serve the main HTML file at the root of the app
 app.get("/", (req, res) => {
-    res.send("Backend is running!");
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-// STARTER
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+
 
 // Function to fetch gold price
 const getGoldPriceInUSD = async () => {
@@ -76,3 +87,9 @@ const getGoldPriceInUSD = async () => {
         return 50; // Fallback value
     }
 };
+
+// Listen on Heroku's provided port, defaulting to 5000 for local development
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
