@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//const PORT = 5000;
+const PORT = 5000;
 
 // API/PRODUCTS include jason file with added real price and changed popularity score
 app.get("/api/products", async (req, res) => {
@@ -52,9 +52,9 @@ app.get("/api/products", async (req, res) => {
 });
 
 // TESTING MAIN PAGE OF ROOT
-//app.get("/", (req, res) => {
-//    res.send("Backend is running!");
-//});
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
+});
 
 // STARTER
 app.listen(PORT, () => {
@@ -76,9 +76,3 @@ const getGoldPriceInUSD = async () => {
         return 50; // Fallback value
     }
 };
-
-// Heroku dynamically assigns a port, which is stored in the $PORT environment variable
-const PORT = process.env.PORT || 5000;  // Default to 5000 if $PORT is not defined (local dev)
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});

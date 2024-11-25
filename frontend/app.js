@@ -1,5 +1,5 @@
 // Backend API URL
-const API_URL = "http://localhost:3000/api/products";
+const API_URL = "http://localhost:5000/api/products";
 
 let currentStartIndex = 0; // Current Range of products
 let totalProducts = 0; // Total number of products
